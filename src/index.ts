@@ -68,7 +68,7 @@ export const validateEmail = (props: IProps) => {
     const userName = splitInputEmail[0];
     const domain = splitInputEmail[1];
 
-    userName.length >= customAccountLength || domain.length >= customDomainLength
+    userName.length > customAccountLength || domain.length > customDomainLength
       ? (result.isValidEmail = false)
       : (result.isValidEmail = true);
 
