@@ -1,0 +1,32 @@
+{
+  "name": "fast-email-address-validation",
+  "version": "0.0.1",
+  "description": "email validation email regex",
+  "types": "./lib/types/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/types/index.d.ts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/types/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
+    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    "prepack": "npm run build"
+  },
+  "repository": "https://github.com/Shuma24/fast-email-address-validation",
+  "author": "Shuma",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}
